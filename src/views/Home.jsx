@@ -4,6 +4,7 @@ const featuredCats = [
   { name: 'Whiskers', age: '2', breed: 'Persian' },
   { name: 'Mittens', age: '2', breed: 'Bengal' },
   { name: 'Shadow', age: '1', breed: 'Siamese' },
+  { name: 'Shadow', age: '1', breed: 'Siamese' },
 ];
 
 export default function Home() {
@@ -39,18 +40,18 @@ export default function Home() {
       </section>
 
       <section className="mt-5">
-        <h2>Featured cats</h2>
+        <h1 className="text-2xl font-semibold mb-4">Featured cats</h1>
         <div className="mt-2 row g-4" id="cats-container"></div>
-        <div className="mt-2 row g-4" id="cats-container">
-          {cats.map((cat, i) => (
-            <div key={i} className="col-md-4">
-              <div className="cat-card">
-                <img src={cat.image} alt={cat.name} className="img-fluid mb-2" style={{ borderRadius: '8px', height: '200px', objectFit: 'cover' }} />
-                <div className="cat-info">
-                  <h3 className="h5 mb-1">{cat.name}</h3>
-                  <p className="mb-0">Age: {cat.age}</p>
-                  <p className="mb-0">Breed: {cat.breed}</p>
-                </div>
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {cats.map((cat, index) => (
+            <div key={index} className="flex flex-col items-center justify-center bg-white rounded-md shadow-md overflow-hidden">
+              <div className="h-[25vh] w-full bg-gray-300 flex justify-center items-center">
+                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="text-lg font-semibold">{cat.name}</h3>
+                <p className="text-gray-600">Age: {cat.age}</p>
+                <p className="text-gray-600">Breed: {cat.breed}</p>
               </div>
             </div>
           ))}
